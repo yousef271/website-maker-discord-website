@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Protected Page</title>
+</head>
+<body>
+    <div id="password-form">
+        <h2>Please enter the password to proceed:</h2>
+        <input type="password" id="password-input">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="message"></p>
+    </div>
+
+    <div id="content" style="display:none;">
+        <!-- Your protected content goes here -->
+        <h1>Welcome to the protected content!</h1>
+        <p>This is the secret information that only authorized users should see.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var input = document.getElementById("password-input").value;
+            var message = document.getElementById("message");
+            var content = document.getElementById("content");
+
+            if (input === "6336") {
+                message.textContent = "Password correct! Access granted.";
+                message.style.color = "green";
+                content.style.display = "block";
+                document.getElementById("password-form").style.display = "none";
+            } else {
+                message.textContent = "Incorrect password. Please try again.";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
